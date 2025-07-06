@@ -1,130 +1,427 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <title>Valeriano Filipe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>Valeriano Filipe - Backend Developer | Node.js & Go | Porto, Portugal</title>
+     <meta name="description" content="Valeriano Filipe - Experienced Backend Developer with 3+ years in Node.js, Go, and microservices. Specializing in API development, AWS Cloud Solutions, and scalable solutions. Available for freelance projects.">
+    <meta name="keywords" content="Backend Developer, Porto Portugal, Freelance Developer, Programador Backend, Desenvolvedor Backend, Node.js Developer, Go Developer, Freelance Backend Developer, Valeriano Filipe">
+    <meta name="author" content="Valeriano Filipe">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Valeriano Filipe - Backend Developer | Node.js & Go Specialist">
+    <meta property="og:description" content="Experienced Backend Developer with 3+ years in Node.js, Go, and microservices. Specializing in API development, AWS, and scalable solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://valerianofc.codes">
+    <meta property="og:image" content="https://valerianofc.codes/images/avatar.png">
+    <meta property="og:site_name" content="Valeriano Filipe Portfolio">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Valeriano Filipe - Backend Developer | Node.js & Go Specialist">
+    <meta name="twitter:description" content="Experienced Backend Developer with 3+ years in Node.js, Go, and microservices. Specializing in API development, AWS, and scalable solutions.">
+    <meta name="twitter:image" content="https://valerianofc.codes/images/avatar.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://valerianofc.codes">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Dark/Light Mode Styles -->
+    <style>
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1f1815;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        body.dark-mode #main {
+            background-color: #1f1815;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6 {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        body.dark-mode a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        body.dark-mode a:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        body.dark-mode .skills-highlight {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        body.dark-mode .experience-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        body.dark-mode .work-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode #cta {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        body.dark-mode .button {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-mode .button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        body.dark-mode .button.primary {
+            background-color: #49bf9d;
+            color: #fff;
+        }
+
+        body.dark-mode .button.primary:hover {
+            background-color: #5cbf9a;
+        }
+
+        body.dark-mode .theme-toggle {
+            background: #333;
+            border-color: #555;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        body.dark-mode .labeled-icons li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .copyright {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Smooth transitions */
+        body, #main, h1, h2, h3, h4, h5, h6, a, .skills-highlight, .experience-item, .work-item, #cta, .button {
+            transition: all 0.3s ease;
+        }
+    </style>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Valeriano Filipe Calológio",
+        "jobTitle": "Backend Developer",
+        "description": "Experienced Backend Developer specializing in Node.js, Go",
+        "url": "https://valerianofc.codes",
+        "sameAs": [
+            "https://www.linkedin.com/in/valerianofilipec",
+            "https://github.com/Valerianofilipec"
+        ],
+        "email": "contact@valerianofc.codes",
+        "telephone": "+351926192524",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Porto",
+            "addressCountry": "Portugal"
+        },
+        "knowsAbout": [
+            "Node.js",
+            "Go",
+            "Golang",
+            "TypeScript",
+            "JavaScript",
+            "API Development",
+            "Microservices",
+            "AWS",
+            "PostgreSQL",
+            "Docker",
+            "Backend Development"
+        ],
+        "workLocation": {
+            "@type": "Place",
+            "name": "Porto, Portugal"
+        }
+    }
+    </script>
 </head>
 <body class="is-preload">
 
+    <!-- Dark/Light Mode Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+        <span id="theme-icon">🌚</span>
+    </button>
+
     <!-- Header -->
-        <header id="header">
-            <div class="inner">
-                <a href="#" class="image avatar"><img src="images/avatar.png" alt="" /></a>
-                <h1><strong>Valeriano Filipe</strong>, Software Developer</h1>
-           </div>
-        </header>
+    <header id="header">
+        <div class="inner">
+            <a href="#" class="image avatar" aria-label="Valeriano Filipe Profile Picture">
+                <img src="images/avatar.png" alt="Valeriano Filipe - Backend Developer" width="150" height="150">
+            </a>
+            <h1><strong>Valeriano Filipe</strong><br>Backend Developer</h1>
+            <p>Node.js (TypeScript/JavaScript) | Go</p>
+        </div>
+    </header>
 
     <!-- Main -->
-        <div id="main">
+    <div id="main">
 
-            <!-- One -->
-                <section id="one">
-                    <header class="major">
-                        <h2>What I don't know, I learn. What I already know, I improve it day by day.</h2>
-                    </header>
-                    <p>Hi, I am Valeriano Filipe, a Software Developer with a strong background in Backend Development with Node.js, skilled in developing and integrating APIs and microservices for web applications. I am a person with a passion for problem-solving, continuous improvement, and teamwork. My approach is rooted in the belief that learning is a daily process. </p>
-                    <p>"I have honed my skills in Node.js development, using TypeScript and JavaScript to create efficient and scalable solutions. I bring strong interpersonal skills, organizational abilities, and effective communication skills to the table."
-                    </p>
+        <!-- About Section -->
+        <section id="about">
+            <header class="major">
+                <h2>Transforming Ideas into Scalable Solutions</h2>
+            </header>
+            <p>Hello! I’m Valeriano Filipe, a Backend Developer with over 3 years of hands-on experience in designing and building scalable server-side solutions using <strong>Node.js</strong> (TypeScript/JavaScript). My expertise includes optimizing performance, migrating monolithic architectures to microservices, and developing robust APIs. I also have foundational knowledge in <strong>C, Java</strong>, and am currently expanding my skills in <strong>Golang</strong> to stay ahead in the evolving tech landscape.</p>
 
-                    <!--
-                        <ul class="actions">
-                            <li><a href="https://www.linkedin.com/in/valerianofilipec" class="button">See More</a></li>
-                        </ul>
-                    -->
-                </section>
+            <p>My expertise spans from migrating monolithic systems to modern microservices architectures, implementing secure authentication systems, to develop robust APIs. What sets me apart is my ability to combine <strong>technical precision with strong problem-solving skills</strong>, ensuring efficient and maintainable code. I thrive in collaborative environments, leveraging my <strong>adaptability</strong>, <strong>resilience</strong>, and <strong>communication skills</strong> to deliver high-impact results. Whether it’s debugging complex systems or streamlining workflows, I’m committed to continuous learning and innovation. I believe in continuous learning and improvement - <strong>"What I don't know, I learn. What I already know, I improve it day by day"</strong>.</p>
 
-            <!-- Two -->
-                <section id="two">
-                    <h2>Recent Projects</h2>
-                    <p>I work as a freelance backend developer, applying NodeJS skills to create efficient solutions in various projects.
-                    I dedicated myself to various open-source projects, demonstrating my ongoing commitment to improving my skills and expanding my knowledge. Among these projects, I highlight:</p>
-                    <div class="row">
-                        <article class="col-6 col-12-xsmall work-item">
-                            <a href="images/fulls/backend_email_service.png" class="image fit thumb"><img src="images/thumbs/backend_email_service.png" alt="" /></a>
-                            <h3><a href="https://github.com/Valerianofilipec/backend_email_service">backend_email_service</a></h3>
-                            <p>Simple batch email triggering system. <br>
-                                <strong>Goal:Use AWS SDK for sending emails using the Simple Email Service, and demonstrate the use of the NoSQL database Redis as a Message Queue</strong>
-                            </p>
-                        </article>
-                        <!--
-                            <article class="col-6 col-12-xsmall work-item">
-                                <a href="images/fulls/bysAuth.png" class="image fit thumb"><img src="images/thumbs/bysAuth.png" alt="" /></a>
-                                <h3><a href="https://github.com/BYSdigital/bysAuth">bysAuth</a></h3>
-                                <p>Simple Authentication and Authorization server for microservices architecture. <br>
-                                    <strong>Goal: Understanding of OAuth framework and others Authentication/Authorization services (ex: ID Providers)</strong>
-                                </p>
-                            </article>
-                        -->
-                        <article class="col-6 col-12-xsmall work-item">
-                            <a href="images/fulls/bysKafka.png" class="image fit thumb"><img src="images/thumbs/bysKafka.png" alt="" /></a>
-                            <h3><a href="https://github.com/Valerianofilipec/bysKafka">bysKafka</a></h3>
-                            <p>Two applications, a producer and a consumer. The producer sends JSON messages to a Kafka topic, while the consumer listens to this topic and displays the received messages.<br>
-                                <strong>Goal:Test the Apache Kafka as Message Queue/Broker</strong>
-                            </p>
-                        </article>
-                        <article class="col-6 col-12-xsmall work-item">
-                            <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
-                            <h3><a href="https://github.com/Valerianofilipec/DevRadar">DevRadar</a></h3>
-                            <p>GitHub user search application that helps you search by username and view information about that user. <br>
-                                <strong>Goal: Integration of API REST</strong></p>
-                        </article>
-                    </div>
-                    <ul class="actions">
-                        <li><a href="https://github.com/Valerianofilipec?tab=repositories" class="button">See Others</a></li>
-                    </ul>
-                </section>
-
-            <!-- Three -->
-                <section id="three">
-                    <h2>Get In Touch</h2>
-                    <p>Contact me for collaboration, opportunities, or just a tech chat. I'm always open to new challenges and learning experiences. </p>
-                    <div class="row">
-                        <div class="col-4 col-12-small">
-                            <ul class="labeled-icons">
-                                <li>
-                                    <h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-                                    Porto, Portugal
-                                </li>
-                                <li>
-                                    <h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-                                    (PT) +351 926 192 524
-                                </li>
-                                <li>
-                                    <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-                                    <a href="mailto:valerianofc@valerianofc.codes">valerianofc@valerianofc.codes</a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://www.zaask.pt/user/valerianofilipec">
-                                        <img src="https://www.zaask.pt/widget?user=637777&widget=pro-findme" alt="" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-        </div>
-
-    <!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <ul class="icons">
-                    <li><a href="https://www.linkedin.com/in/valerianofilipec" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="https://github.com/Valerianofilipec" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                    <li><a href="mailto:valerianofc@valerianofc.codes" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            <div class="skills-highlight">
+                <h3>Core Skills/Technologies</h3>
+                <ul class="skills-list">
+                    <li><strong>Node.js backend development</strong></li>
+                    <li><strong>Microservices architecture</strong> </li>
+                    <li><strong>API development and integration</strong> (REST/GraphQL/WebSockets/gRPC)</li>
+                    <li><strong>Database management</strong> (PostgreSQL/MySQL/Redis)</li>
+                    <li><strong>Cloud services and containerization</strong> (AWS, Docker, Kubernetes)</li>
+                    <li><strong>Message queue systems</strong> (Apache Kafka)</li>
                 </ul>
             </div>
-        </footer>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <article class="experience-item">
+                <h3>Backend Developer - Freelance</h3>
+                <p class="experience-period">Present</p>
+                <ul>
+                    <li>Designed and deployed multiple backend services using Node.js, APIs, and microservices architecture</li>
+                    <li>Built <strong>bysKafka</strong> - Apache Kafka integration for inter-service communication</li>
+                    <li>Currently developing <strong>"notebys"</strong> - a cross-platform web/mobile app using Go and Node.js backend, React web, and React Native mobile</li>
+                    <li>Implemented AI-based daily word suggestions using LLM APIs</li>
+                    <li>Created RESTful APIs with secure user authentication and scalable backend services</li>
+                </ul>
+            </article>
+
+            <article class="experience-item">
+                <h3>Web Developer - Ludus Cristaltec</h3>
+                <p class="experience-period">2023 - 2024 | Porto, Portugal</p>
+                <ul>
+                    <li>Maintained and improved internal web-based time management system</li>
+                    <li>Successfully migrated monolithic Laravel 7 system to microservices architecture</li>
+                    <li>Implemented Node.js backend, Vue.js frontend, and AWS S3 CDN integration</li>
+                    <li>Delivered automated hour sheets and entry/exit records functionality</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <p>I work as a freelance backend developer, applying my Node.js and Go skills to create efficient solutions across various projects. Here are some highlights from my open-source contributions:</p>
+
+            <div class="row">
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="images/fulls/backend_email_service.png" class="image fit thumb" aria-label="Backend Email Service Project">
+                        <img src="images/thumbs/backend_email_service.png" alt="Backend Email Service - AWS SES Integration" loading="lazy">
+                    </a>
+                    <h3><a href="https://github.com/Valerianofilipec/backend_email_service" target="_blank" rel="noopener noreferrer">Backend Email Service</a></h3>
+                    <p>Simple batch email triggering system built with Node.js and AWS SDK.</p>
+                    <p><strong>Technologies:</strong> Node.js, AWS SES, Redis, Message Queue</p>
+                    <p><strong>Goal:</strong> Demonstrate AWS SDK integration for email services and Redis as Message Queue</p>
+                </article>
+
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="images/fulls/bysKafka.png" class="image fit thumb" aria-label="BysKafka Project">
+                        <img src="images/thumbs/bysKafka.png" alt="BysKafka - Apache Kafka Integration" loading="lazy">
+                    </a>
+                    <h3><a href="https://github.com/Valerianofilipec/bysKafka" target="_blank" rel="noopener noreferrer">BysKafka</a></h3>
+                    <p>Producer and consumer applications for Apache Kafka message processing.</p>
+                    <p><strong>Technologies:</strong> Node.js, Apache Kafka, JSON messaging</p>
+                    <p><strong>Goal:</strong> Test Apache Kafka as Message Queue/Broker for microservices communication</p>
+                </article>
+
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="images/fulls/01.jpg" class="image fit thumb" aria-label="DevRadar Project">
+                        <img src="images/thumbs/01.jpg" alt="DevRadar - GitHub User Search Application" loading="lazy">
+                    </a>
+                    <h3><a href="https://github.com/Valerianofilipec/DevRadar" target="_blank" rel="noopener noreferrer">DevRadar</a></h3>
+                    <p>GitHub user search application for discovering developer profiles and information.</p>
+                    <p><strong>Technologies:</strong> Node.js, REST API, GitHub API integration</p>
+                    <p><strong>Goal:</strong> Demonstrate REST API integration and data processing</p>
+                </article>
+
+                <article class="col-6 col-12-xsmall work-item">
+                    <div class="image fit thumb" style="background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                        <h4 style="color: white; text-align: center; margin: 0;">Notebys<br><small>In Development</small></h4>
+                    </div>
+                    <h3>Notebys (In Development)</h3>
+                    <p>Cross-platform smart note-taking application with AI integration.</p>
+                    <p><strong>Technologies:</strong> Go, Node.js, React, React Native, LLM APIs</p>
+                    <p><strong>Goal:</strong> Build a comprehensive note-taking solution with AI-powered features</p>
+                </article>
+            </div>
+
+            <ul class="actions">
+                <li><a href="https://github.com/Valerianofilipec?tab=repositories" class="button" target="_blank" rel="noopener noreferrer">View All Projects on GitHub</a></li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Let's Build Something Amazing Together</h2>
+            <p>I'm always open to discussing new opportunities, collaborating on interesting projects, or simply having a technical conversation. Whether you need a backend solution, API development, or microservices architecture, I'm here to help.</p>
+
+            <div class="row">
+                <div class="col-8 col-12-small">
+                    <h3>Why Work With Me?</h3>
+                    <ul>
+                        <li><strong>Proven Experience:</strong> 3+ years in backend development with successful project deliveries</li>
+                        <li><strong>Modern Technologies:</strong> Expertise in Node.js, Go, and cutting-edge backend technologies</li>
+                        <li><strong>Scalable Solutions:</strong> Specialized in microservices and cloud-native architectures</li>
+                        <li><strong>Continuous Learning:</strong> Always staying updated with the latest industry trends</li>
+                        <li><strong>Strong Communication:</strong> Fluent in English and Portuguese, effective remote collaboration</li>
+                    </ul>
+                </div>
+                <div class="col-4 col-12-small">
+                    <ul class="labeled-icons">
+                        <li>
+                            <h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+                            Porto, Portugal
+                        </li>
+                        <li>
+                            <h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+                            <a href="tel:+351926192524">+351 926 192 524</a>
+                        </li>
+                        <li>
+                            <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+                            <a href="mailto:contact@valerianofc.codes">contact@valerianofc.codes</a>
+                        </li>
+                        <li>
+                            <h3 class="icon solid fa-briefcase"><span class="label">Freelance</span></h3>
+                            <a href="https://www.zaask.pt/user/valerianofilipec" target="_blank" rel="noopener noreferrer">
+								<img src="https://www.zaask.pt/widget?user=637777&widget=pro-findme" alt="Find me on Zaask" style="max-width: 100%; height: auto;">
+							</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" style="text-align: center; padding: 2rem 0; background: #f8f9fa; border-radius: 10px; margin: 2rem 0;">
+            <h2>Ready to Start Your Next Project?</h2>
+            <p>Let's discuss how I can help you build robust, scalable backend solutions that drive your business forward.</p>
+            <ul class="actions">
+                <li><a href="mailto:contact@valerianofc.codes?subject=Project%20Inquiry" class="button primary">Get In Touch</a></li>
+                <li><a href="https://www.linkedin.com/in/valerianofilipec" class="button" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/valerianofilipec" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Valerianofilipec" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><span class="label">GitHub</span></a></li>
+                <li><a href="mailto:contact@valerianofc.codes" class="icon solid fa-envelope" aria-label="Email Contact"><span class="label">Email</span></a></li>
+            </ul>
+            <p class="copyright">© 2025 BYS Lda - Valeriano Filipe.</p>
+        </div>
+    </footer>
 
     <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.poptrox.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Dark/Light Mode Toggle Script -->
+    <script>
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Apply the saved theme on page load
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.textContent = '🌞';
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+
+            // Update icon and save preference
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.textContent = '🌞';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.textContent = '🌚';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+    </script>
 
 </body>
 </html>
